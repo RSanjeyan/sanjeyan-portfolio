@@ -87,7 +87,7 @@ const About = () => {
           {/* Stats Card (Spans 2 columns) */}
           <BentoCard className="md:col-span-2 md:row-span-1 border-none justify-center" delay={0.4}>
             {/* Background graphic */}
-            <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-slate-200 dark:bg-slate-800 blur-[80px] rounded-full pointer-events-none group-hover:scale-110 transition-transform duration-700"></div>
+            <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-slate-200 dark:bg-slate-800 blur-[80px] rounded-full pointer-events-none group-hover:scale-110 transition-transform duration-700 transform-gpu will-change-transform"></div>
             
             <div className="grid grid-cols-2 gap-8 relative z-10 w-full">
               <div className="flex flex-col">

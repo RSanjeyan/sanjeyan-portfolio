@@ -27,7 +27,7 @@ const ServiceCard = ({ icon: Icon, title, description, isLarge }) => (
     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/5 to-transparent pointer-events-none hidden dark:block"></div>
     
     {/* Abstract Background Element */}
-    <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-slate-800/40 blur-[80px] rounded-full opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 pointer-events-none"></div>
+    <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-slate-800/40 blur-[80px] rounded-full opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 pointer-events-none transform-gpu will-change-transform"></div>
 
     <div className="flex justify-between items-start mb-16 relative z-10">
       <div className="w-14 h-14 rounded-2xl bg-slate-50 dark:bg-[#222] flex items-center justify-center text-slate-900 dark:text-white shadow-sm border border-slate-200/50 dark:border-[#333] group-hover:scale-110 transition-transform duration-500">

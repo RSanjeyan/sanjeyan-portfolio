@@ -27,7 +27,7 @@ const ProjectCard = ({ title, description, tags, githubLink, demoLink }) => (
     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/5 to-transparent pointer-events-none hidden dark:block"></div>
     
     {/* Abstract Background Element */}
-    <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-slate-800/40 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 pointer-events-none"></div>
+    <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-slate-800/40 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 pointer-events-none transform-gpu will-change-transform"></div>
 
     <div className="flex-1 relative z-10 flex flex-col">
       <div className="flex justify-between items-start mb-8">

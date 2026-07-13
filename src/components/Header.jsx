@@ -18,24 +18,44 @@ const Header = () => {
 
   // Handle Scroll and Active Section
   useEffect(() => {
+    // 1. Throttle the top scroll check (cheap)
+    let scrollTimeout;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-      
-      const sections = links.map(link => document.getElementById(link.id));
-      const scrollPosition = window.scrollY + 100;
+      if (scrollTimeout) return;
+      scrollTimeout = setTimeout(() => {
+        setIsScrolled(window.scrollY > 20);
+        scrollTimeout = null;
+      }, 50);
+    };
+    
+    // Use passive listener for better scroll performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(links[i].id);
-          break;
-        }
-      }
+    // 2. Use highly efficient IntersectionObserver for active section (zero scroll thrashing)
+    const observerOptions = {
+      root: null,
+      rootMargin: '-40% 0px -40% 0px', // Trigger when section is in the middle 20% of screen
+      threshold: 0
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, observerOptions);
+
+    links.forEach((link) => {
+      const section = document.getElementById(link.id);
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
+  }, []); // Remove links from dependency array as it's static
 
   // Force Dark Mode Always
   useEffect(() => {

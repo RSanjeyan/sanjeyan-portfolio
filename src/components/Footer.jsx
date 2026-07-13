@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="bg-bg-secondary dark:bg-[#0A0A0A] relative overflow-hidden pt-24 pb-8 border-t border-slate-200/60 dark:border-[#222]">
       {/* Massive blurred glow at the bottom center for modern aesthetic */}
-      <div className="absolute -bottom-64 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-slate-200 dark:bg-white opacity-20 dark:opacity-[0.03] blur-[120px] rounded-[100%] pointer-events-none"></div>
+      <div className="absolute -bottom-64 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-slate-200 dark:bg-white opacity-20 dark:opacity-[0.03] blur-[120px] rounded-[100%] pointer-events-none transform-gpu will-change-transform"></div>
       
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
         

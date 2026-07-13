@@ -30,7 +30,7 @@ const SkillCard = ({ title, icon: Icon, skills, delay }) => (
     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/5 to-transparent pointer-events-none hidden dark:block"></div>
     
     {/* Abstract Background Element */}
-    <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-slate-800/30 blur-[80px] rounded-full opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 pointer-events-none"></div>
+    <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-slate-800/30 blur-[80px] rounded-full opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 pointer-events-none transform-gpu will-change-transform"></div>
     
     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mb-10 relative z-10">
       <div className="w-14 h-14 rounded-2xl bg-slate-50 dark:bg-[#222] flex items-center justify-center text-slate-900 dark:text-white shadow-sm border border-slate-200/50 dark:border-[#333] shrink-0 group-hover:scale-110 transition-transform duration-500">
