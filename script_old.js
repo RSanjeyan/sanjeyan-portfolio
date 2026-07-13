@@ -191,11 +191,16 @@ contactForm.addEventListener('submit', (e) => {
     // Get form values
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
+    const whatsappNum = document.getElementById('whatsapp').value;
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
     
     // Construct WhatsApp message text
-    const text = `*New Contact Form Submission*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Subject:* ${encodeURIComponent(subject)}%0A*Message:* ${encodeURIComponent(message)}`;
+    let text = `*New Contact Form Submission*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}`;
+    if (whatsappNum) {
+        text += `%0A*WhatsApp:* ${encodeURIComponent(whatsappNum)}`;
+    }
+    text += `%0A*Subject:* ${encodeURIComponent(subject)}%0A*Message:* ${encodeURIComponent(message)}`;
     
     // WhatsApp Phone Number (Sri Lanka +94)
     const phone = '94776119668';
