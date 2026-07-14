@@ -24,7 +24,7 @@ const SkillCard = ({ title, icon: Icon, skills, delay }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-50px" }}
     transition={{ duration: 0.7, delay, type: "spring", stiffness: 90 }}
-    className="bg-white dark:bg-[#111] rounded-[32px] p-8 md:p-10 border border-slate-200/60 dark:border-[#222] shadow-sm hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-white/5 transition-all duration-500 relative overflow-hidden group flex flex-col"
+    className="bg-white/60 dark:bg-[#111]/60 backdrop-blur-xl rounded-[32px] p-8 md:p-10 border border-slate-200/60 dark:border-[#222] shadow-sm hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-white/5 transition-all duration-500 relative overflow-hidden group flex flex-col"
   >
     {/* Subtle Inner Glow on Hover */}
     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/5 to-transparent pointer-events-none hidden dark:block"></div>
@@ -109,6 +109,25 @@ const Skills = () => {
             The tools, languages, and frameworks I use to build scalable digital experiences.
           </p>
         </motion.div>
+
+        <div className="relative w-[100vw] ml-[calc(-50vw+50%)] overflow-hidden flex whitespace-nowrap mb-24 opacity-80 border-y border-slate-200/50 dark:border-[#222]/50 py-4 bg-white/30 dark:bg-black/30 backdrop-blur-sm">
+          <div className="flex animate-marquee min-w-full">
+            {[...Array(2)].map((_, i) => (
+              <div key={i} className="flex gap-8 px-4 items-center">
+                <span className="text-5xl md:text-8xl font-bold font-display text-transparent" style={{ WebkitTextStroke: '1px rgba(150, 150, 150, 0.4)' }}>REACT</span>
+                <span className="text-2xl md:text-3xl text-emerald-500">✦</span>
+                <span className="text-5xl md:text-8xl font-bold font-display text-transparent" style={{ WebkitTextStroke: '1px rgba(150, 150, 150, 0.4)' }}>NODE</span>
+                <span className="text-2xl md:text-3xl text-blue-500">✦</span>
+                <span className="text-5xl md:text-8xl font-bold font-display text-transparent" style={{ WebkitTextStroke: '1px rgba(150, 150, 150, 0.4)' }}>TYPESCRIPT</span>
+                <span className="text-2xl md:text-3xl text-emerald-500">✦</span>
+                <span className="text-5xl md:text-8xl font-bold font-display text-transparent" style={{ WebkitTextStroke: '1px rgba(150, 150, 150, 0.4)' }}>UI/UX</span>
+                <span className="text-2xl md:text-3xl text-blue-500">✦</span>
+                <span className="text-5xl md:text-8xl font-bold font-display text-transparent" style={{ WebkitTextStroke: '1px rgba(150, 150, 150, 0.4)' }}>NEXT.JS</span>
+                <span className="text-2xl md:text-3xl text-emerald-500">✦</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {skillData.map((category, index) => (

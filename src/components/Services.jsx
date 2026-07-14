@@ -21,7 +21,7 @@ const itemVariants = {
 const ServiceCard = ({ icon: Icon, title, description, isLarge }) => (
   <motion.div 
     variants={itemVariants}
-    className={`bg-white dark:bg-[#111] rounded-[32px] p-8 md:p-10 border border-slate-200/60 dark:border-[#222] shadow-sm hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-white/5 transition-all duration-500 relative overflow-hidden group flex flex-col ${isLarge ? 'md:col-span-2 lg:col-span-2' : ''}`}
+    className={`bg-white/60 dark:bg-[#111]/60 backdrop-blur-xl rounded-[32px] p-8 md:p-10 border border-slate-200/60 dark:border-[#222] shadow-sm hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-white/5 transition-all duration-500 relative overflow-hidden group flex flex-col ${isLarge ? 'md:col-span-2 lg:col-span-2' : ''}`}
   >
     {/* Subtle Inner Glow on Hover */}
     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/5 to-transparent pointer-events-none hidden dark:block"></div>

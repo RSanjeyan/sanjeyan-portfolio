@@ -1,12 +1,54 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download, Terminal, Code2, Database } from 'lucide-react';
+import { Canvas } from '@react-three/fiber';
+import { Float, MeshDistortMaterial, Sphere, Stars } from '@react-three/drei';
+
+const Shapes = () => {
+  return (
+    <>
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[10, 10, 5]} intensity={1} />
+      <Float speed={2} rotationIntensity={1} floatIntensity={2}>
+        <Sphere args={[1, 64, 64]} position={[-1.5, 1.5, -5]} scale={1.2}>
+          <MeshDistortMaterial 
+            color="#3b82f6" 
+            attach="material" 
+            distort={0.4} 
+            speed={2} 
+            roughness={0.2} 
+            transparent
+            opacity={0.3}
+          />
+        </Sphere>
+      </Float>
+      <Float speed={1.5} rotationIntensity={2} floatIntensity={2}>
+        <Sphere args={[1, 64, 64]} position={[1.5, -1.5, -6]} scale={1.4}>
+          <MeshDistortMaterial 
+            color="#10b981" 
+            attach="material" 
+            distort={0.6} 
+            speed={1.5} 
+            roughness={0.2}
+            transparent
+            opacity={0.2}
+          />
+        </Sphere>
+      </Float>
+      <Stars radius={100} depth={50} count={2000} factor={4} saturation={0} fade speed={1} />
+    </>
+  );
+};
 
 const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-24 pb-12 relative overflow-hidden bg-background dark:bg-background-dark">
-      {/* Abstract Minimal Grid Background */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiM5NDkzQjgiIGZpbGwtb3BhY2l0eT0iMC4xNSIvPjwvc3ZnPg==')] z-0 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]"></div>
+      {/* 3D Interactive Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+          <Shapes />
+        </Canvas>
+      </div>
       
       <div className="container mx-auto px-4 max-w-5xl relative z-10 flex flex-col items-center text-center">
         
@@ -57,7 +99,7 @@ const Hero = () => {
             View Projects
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
-          <a href="#" className="w-full sm:w-auto px-8 py-4 bg-white dark:bg-[#111] hover:bg-slate-50 dark:hover:bg-[#222] text-black dark:text-white border border-slate-200 dark:border-[#333] rounded-2xl font-medium transition-colors flex items-center justify-center gap-2 shadow-sm text-base">
+          <a href="#" className="w-full sm:w-auto px-8 py-4 bg-white/60 dark:bg-[#111]/60 backdrop-blur-xl hover:bg-slate-50 dark:hover:bg-[#222] text-black dark:text-white border border-slate-200 dark:border-[#333] rounded-2xl font-medium transition-colors flex items-center justify-center gap-2 shadow-sm text-base">
             <Download size={18} />
             Download CV
           </a>
@@ -67,7 +109,7 @@ const Hero = () => {
         <motion.div 
           animate={{ y: [0, -15, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 -left-12 md:left-0 hidden lg:flex items-center justify-center w-16 h-16 rounded-2xl bg-white dark:bg-[#111] border border-slate-100 dark:border-[#222] shadow-sm text-slate-400 dark:text-slate-500"
+          className="absolute top-1/4 -left-12 md:left-0 hidden lg:flex items-center justify-center w-16 h-16 rounded-2xl bg-white/60 dark:bg-[#111]/60 backdrop-blur-xl border border-slate-100 dark:border-[#222] shadow-sm text-slate-400 dark:text-slate-500"
         >
           <Code2 size={24} />
         </motion.div>
@@ -75,7 +117,7 @@ const Hero = () => {
         <motion.div 
           animate={{ y: [0, 15, 0], rotate: [0, 5, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-1/4 -right-12 md:right-0 hidden lg:flex items-center justify-center w-16 h-16 rounded-2xl bg-white dark:bg-[#111] border border-slate-100 dark:border-[#222] shadow-sm text-slate-400 dark:text-slate-500 hover:scale-110 transition-transform"
+          className="absolute bottom-1/4 -right-12 md:right-0 hidden lg:flex items-center justify-center w-16 h-16 rounded-2xl bg-white/60 dark:bg-[#111]/60 backdrop-blur-xl border border-slate-100 dark:border-[#222] shadow-sm text-slate-400 dark:text-slate-500 hover:scale-110 transition-transform"
         >
           <Terminal size={24} />
         </motion.div>

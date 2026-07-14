@@ -115,7 +115,7 @@ const Contact = () => {
             transition={{ duration: 0.7, type: "spring" }}
             className="lg:col-span-7"
           >
-            <div className="bg-white dark:bg-[#111] rounded-[32px] p-8 md:p-12 border border-slate-200/60 dark:border-[#222] shadow-sm relative overflow-hidden group">
+            <div className="bg-white/60 dark:bg-[#111]/60 backdrop-blur-xl rounded-[32px] p-8 md:p-12 border border-slate-200/60 dark:border-[#222] shadow-sm relative overflow-hidden group">
               {/* Subtle Inner Glow */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-white/5 to-transparent pointer-events-none hidden dark:block"></div>
               

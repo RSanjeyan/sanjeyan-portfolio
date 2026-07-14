@@ -33,7 +33,7 @@ const ExperienceItem = ({ role, company, period, description, type, delay, isLef
       <motion.div 
         whileHover={{ y: -5 }}
         transition={{ duration: 0.2 }}
-        className="bg-white dark:bg-[#111] p-8 rounded-3xl border border-slate-200 dark:border-[#333] shadow-sm hover:shadow-card hover:border-black dark:hover:border-white transition-all duration-300"
+        className="bg-white/60 dark:bg-[#111]/60 backdrop-blur-xl p-8 rounded-3xl border border-slate-200 dark:border-[#333] shadow-sm hover:shadow-card hover:border-black dark:hover:border-white transition-all duration-300"
       >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
           <h3 className="text-xl font-bold text-slate-900 dark:text-white">{role}</h3>

@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-background dark:bg-background-dark selection:bg-primary/20 selection:text-primary">
+    <div className="min-h-screen bg-background dark:bg-background-dark selection:bg-primary/20 selection:text-primary overflow-x-hidden w-full relative">
       <Header />
       <main>
         <Hero />

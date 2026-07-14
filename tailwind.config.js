@@ -43,6 +43,15 @@ module.exports = {
       boxShadow: {
         'card': '0 10px 40px rgba(0,0,0,.04)',
         'card-dark': '0 10px 40px rgba(255,255,255,.04)'
+      },
+      animation: {
+        marquee: 'marquee 25s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        }
       }
     },
   },
